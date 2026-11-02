@@ -1,0 +1,11 @@
+{
+  "schema": "forestry-castor-browser-source-v1",
+  "repository": "ahzs645/PGMaps",
+  "revision": "REPLACE_WITH_REVIEWED_40_CHARACTER_PGMAPS_COMMIT",
+  "upstream": {
+    "forestryCastor": "e2a580eb1fcc634780bb3599da7265a1e871484f",
+    "growingStockCastor": "8ea945a91b4ec71d0ddd28714641b6dcae229c5c",
+    "dataCastor": "884ce9d726942b3d2eae7b88120bd1b7ad863a19"
+  },
+  "files": []
+}

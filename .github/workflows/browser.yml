@@ -1,0 +1,109 @@
+name: Verify and deploy forestryCastor browser
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - '.github/workflows/browser.yml'
+  pull_request:
+    paths:
+      - 'web/**'
+      - '.github/workflows/browser.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: forestry-castor-browser-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Read the reviewed host revision
+        id: source
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const lock = JSON.parse(fs.readFileSync('web/source.json', 'utf8'))
+          if (lock.repository !== 'ahzs645/PGMaps' || !/^[a-f0-9]{40}$/.test(lock.revision)) throw new Error('Invalid PGMaps source pin')
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `repository=${lock.repository}\nrevision=${lock.revision}\n`)
+          NODE
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ steps.source.outputs.repository }}
+          ref: ${{ steps.source.outputs.revision }}
+          path: .pgmaps-host
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: .pgmaps-host/package-lock.json
+      - name: Verify editable sources and prepare the isolated build host
+        env:
+          CASTOR_PGMAPS_CHECKOUT: ${{ github.workspace }}/.pgmaps-host
+        run: node web/scripts/build.mjs --prepare-only
+      - name: Verify source and original SQLite reference fixtures
+        working-directory: .pgmaps-host
+        run: python scripts/forestry-castor/reference/generate.py --check
+      - name: Test the converted engine, imports, exports and session recovery
+        working-directory: .pgmaps-host
+        run: npx vitest run src/features/forestry-castor
+      - name: Build the full static browser application
+        env:
+          CASTOR_PGMAPS_CHECKOUT: ${{ github.workspace }}/.pgmaps-host
+        run: node web/scripts/build.mjs --skip-install
+      - name: Install the standard browser test runtime
+        working-directory: .pgmaps-host
+        run: npx playwright install --with-deps chromium
+      - name: Exercise the real deployed subpath, worker, Wasm, maps and downloads
+        working-directory: .pgmaps-host
+        run: |
+          npx vite preview --config vite.castor.config.ts --base /forestryCastor/ --host 127.0.0.1 --port 42174 --strictPort > forestry-castor-browser.log 2>&1 &
+          castor_preview_pid=$!
+          trap 'kill "$castor_preview_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..60}; do
+            if curl --silent --fail http://127.0.0.1:42174/forestryCastor/ > /dev/null; then break; fi
+            if ! kill -0 "$castor_preview_pid" 2>/dev/null; then cat forestry-castor-browser.log; exit 1; fi
+            sleep 1
+          done
+          curl --silent --show-error --fail http://127.0.0.1:42174/forestryCastor/ > /dev/null
+          PGMAPS_E2E_BASE_URL=http://127.0.0.1:42174 PGMAPS_E2E_PRODUCTION=1 PGMAPS_CASTOR_STANDALONE=1 npx playwright test tests/e2e/forestry-castor.spec.ts --project=chromium --workers=1 --reporter=line,html
+      - name: Keep verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forestry-castor-browser-results
+          path: |
+            .pgmaps-host/test-results
+            .pgmaps-host/playwright-report
+            .pgmaps-host/forestry-castor-browser.log
+            web/dist/source-manifest.json
+          retention-days: 14
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: browser
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Deploy verified browser application
+        id: deployment
+        uses: actions/deploy-pages@v4

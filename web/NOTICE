@@ -1,0 +1,28 @@
+Forestry Castor browser adaptation
+
+Adapted model algorithms originate in:
+- bcgov/forestryCastor, revision e2a580eb1fcc634780bb3599da7265a1e871484f
+- bcgov/growingStockCastor, revision 8ea945a91b4ec71d0ddd28714641b6dcae229c5c
+- bcgov/dataCastor, revision 884ce9d726942b3d2eae7b88120bd1b7ad863a19
+
+Copyright 2023 Province of British Columbia.
+Licensed under the Apache License, Version 2.0. See ../LICENSE.
+
+The browser adaptation was developed in PGMaps and is mirrored as editable
+TypeScript and React source in web/src. It adds local browser execution, input
+validation, normalized hectare accounting, bounded workloads, structured
+predicates, event histories, partial-cut and salvage accounting, seeded fixed-plan
+yield sensitivity, Float64 raster exports, maps and browser reports. Corrections
+and extensions are documented in the pinned PGMaps host's
+docs/forestry-castor.md and docs/forestry-castor-source-audit.md.
+
+This is an adapted implementation, not an official BC Government product or an
+assertion of complete numerical equivalence with an R/SpaDES simulation. It does
+not reproduce absent gamma calibration, the external Java cellular automaton,
+provincial PostgreSQL preparation or the companion disturbance/road/fire/caribou
+modules. The original R module remains separately preserved in this repository.
+
+web/source.json records the exact PGMaps host revision and hashes of all mirrored
+source files. The host's public/data/forestry-castor directory carries the unchanged
+dataCastor example, its provenance, full licence and data notice; that sample is
+included at build time instead of duplicated in this source overlay.

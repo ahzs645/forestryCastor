@@ -1,3 +1,35 @@
+# forestryCastor: browser workbench and original R module
+
+**[Open the browser application](https://projects.ahmadjalil.com/forestryCastor/)**
+
+This fork adds a browser implementation of the forestry scenario workbench. Load
+local inventory and scenario files, compare management scenarios, inspect maps and
+tables, and export CSV, GeoJSON, GeoTIFF, complete reports and saved sessions.
+Calculations run locally in a TypeScript worker; the example data and SQLite Wasm
+load from the application's own origin.
+
+The converted model and interface are editable in [web/src](web/src). See the
+[browser source and build guide](web/README.md) for the pinned PGMaps dependency,
+source checksums, build instructions and deployment checks. The PGMaps host
+provides the same shared interface and static build; this fork contains its own
+editable Castor source overlay. Attribution is in [web/NOTICE](web/NOTICE).
+
+The browser implementation documents model corrections and extensions. Its yield
+sensitivity does not reproduce the calibrated gamma prediction intervals described
+by the original README: that calibration implementation and its data are absent
+from the published module. Prepared inventory, blocks, yields and management
+assumptions remain user inputs. Browser results do not establish complete
+R/SpaDES numerical equivalence.
+
+## Original upstream R documentation
+
+The original Province of British Columbia README is preserved below. It describes
+the R/SpaDES module and its original dependencies and advertised outputs; use the
+browser guide above for the implemented web behavior. Original R source files
+remain unchanged in this fork.
+
+---
+
 ## forestryCastor 
 
 ### What it does

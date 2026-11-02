@@ -1,0 +1,124 @@
+{
+  "schema": "forestry-castor-browser-source-v1",
+  "repository": "ahzs645/PGMaps",
+  "revision": "5f16952e884b0fdceb6d635786542532761dc1c0",
+  "upstream": {
+    "forestryCastor": "e2a580eb1fcc634780bb3599da7265a1e871484f",
+    "growingStockCastor": "8ea945a91b4ec71d0ddd28714641b6dcae229c5c",
+    "dataCastor": "884ce9d726942b3d2eae7b88120bd1b7ad863a19"
+  },
+  "files": [
+    {
+      "path": "src/features/forestry-castor/NOTICE.md",
+      "sha256": "901d791d47b329dc6f6aee9fe52cdfdcaed1ebe6d2f9a0d7afed820a1b235cb2"
+    },
+    {
+      "path": "src/features/forestry-castor/constraints.ts",
+      "sha256": "da4df1c503f41c3951f92385d602f6fa1923aa426babf7b368dcfcf95b6c4ae3"
+    },
+    {
+      "path": "src/features/forestry-castor/engine.test.ts",
+      "sha256": "ddf8032b5599e362052b8e4ed1e2c940f26c3c8e8c01247865a7403737f78cc6"
+    },
+    {
+      "path": "src/features/forestry-castor/engine.ts",
+      "sha256": "18f99ebd4fc8c71e5e74d83cdeb8385d650aef165a47d306eec27e6f92c895e7"
+    },
+    {
+      "path": "src/features/forestry-castor/geotiff.ts",
+      "sha256": "d9fd152ed561295eb71f946fb6bacbd6d738d475987b3607a11190dddf9506ac"
+    },
+    {
+      "path": "src/features/forestry-castor/growth.ts",
+      "sha256": "5e3c2a730a3a6e20d9d08663c41660ee8f9d12c75d6067766c6b9f07c400c605"
+    },
+    {
+      "path": "src/features/forestry-castor/inputTables.ts",
+      "sha256": "a737db58b7321ca1d7349a97ab42abbcbe3f2f1a7cb3f76dd11b16ca59d14ca8"
+    },
+    {
+      "path": "src/features/forestry-castor/inputs.ts",
+      "sha256": "b25987a2904ee995e6970ba9dee7cec1a1ae2ca76564ba43694b68791500e780"
+    },
+    {
+      "path": "src/features/forestry-castor/io-engine.test.ts",
+      "sha256": "9ec6002275f28bb5a8c5e179a937b6c9f848d52aebd911b410d9a4c385e11e38"
+    },
+    {
+      "path": "src/features/forestry-castor/io.test.ts",
+      "sha256": "9de2ff755d55ff2f32058e460309e56c8c11732f405cdff7500555dc3ea8f09b"
+    },
+    {
+      "path": "src/features/forestry-castor/legacyPredicates.ts",
+      "sha256": "c0dee986cc06f381851da92a15b0e7e7cf4dd9bc7ca6bf2c2858accc9a6e2b38"
+    },
+    {
+      "path": "src/features/forestry-castor/outputs.ts",
+      "sha256": "e9357e77466b1370c1a43300885b2f1b0cff54a2b4670ba1cc1a665e52e8eccd"
+    },
+    {
+      "path": "src/features/forestry-castor/persistence.test.ts",
+      "sha256": "5defffd006d407405e1cbcb96aca2ceeab10fe21303a31eec8ae98f9f5e9782b"
+    },
+    {
+      "path": "src/features/forestry-castor/persistence.ts",
+      "sha256": "7cc6789921a324162ca96489b1fe59fec130583f60e9dda0137b5da0a4c2802a"
+    },
+    {
+      "path": "src/features/forestry-castor/rasterInputs.test.ts",
+      "sha256": "8b944ea63e7fc7fd0b41478f28e9084776e220ae8b37aeb1741c5175c5a70f1e"
+    },
+    {
+      "path": "src/features/forestry-castor/rasterInputs.ts",
+      "sha256": "98bd7caabd19392caef05af64b8d6e9d0abcf453fd57579b5326c8b4bebedf56"
+    },
+    {
+      "path": "src/features/forestry-castor/types.ts",
+      "sha256": "27be34e96316d4eda6c222e3023da6b67c35471765063ab1462f58a9e4c50ec1"
+    },
+    {
+      "path": "src/features/forestry-castor/uncertainty.ts",
+      "sha256": "a99e1beacb33a50bf8900c7360489d04aa6cdf4fae9b269973d0705de73ec857"
+    },
+    {
+      "path": "src/features/forestry-castor/validation.ts",
+      "sha256": "aea76df89517211d0e8d7f92afc483c80e77f944c9005ebca95e56fff9c2b4bc"
+    },
+    {
+      "path": "src/pages/DevForestryCastor.tsx",
+      "sha256": "55b03d0d1e0345aa5a102840a1e90d1b7b5bf35f88384963198d706693e17d15"
+    },
+    {
+      "path": "src/pages/forestry-castor/MethodsPanel.tsx",
+      "sha256": "e902f7f756c13240a4af28e3b6dfdee1f0f723cd3c56da4a584cd6f83c113c9c"
+    },
+    {
+      "path": "src/pages/forestry-castor/ResultsPanel.tsx",
+      "sha256": "f8c35884eddd0eec38f02ca0fbd19eff09abd537bafac2af6d8fa31b1c113f8a"
+    },
+    {
+      "path": "src/pages/forestry-castor/ScenarioSettings.tsx",
+      "sha256": "5b9f414b71fb47ac5aa8e98cbc490881f3365b3e35addcf3c2b5a2c85d8b32c7"
+    },
+    {
+      "path": "src/pages/forestry-castor/SpatialPanel.tsx",
+      "sha256": "950fc865326201ab865569fdfbc4168ed4c243cd3b7842919767dd46f84ee33c"
+    },
+    {
+      "path": "src/pages/forestry-castor/castor.worker.ts",
+      "sha256": "b41c790288a58de46fb4fe56a52b2d16708a1dc8675f3130d10d4662cfa7f507"
+    },
+    {
+      "path": "src/pages/forestry-castor/common.tsx",
+      "sha256": "2e4b89ee47ed1307d11f6d4716a1146f6a397b32cfd8022342bfd7d475e72b8d"
+    },
+    {
+      "path": "src/pages/forestry-castor/protocol.ts",
+      "sha256": "01c30f66f8f944d5afc34db0ff8527859f25dcd2e7e9f2c72fc314d230eb4778"
+    },
+    {
+      "path": "src/pages/forestry-castor/useCastorSimulation.ts",
+      "sha256": "54d5230c7cc55e5b047f533e95bd002ce8f8413b8f3cb68c52df1018868364bf"
+    }
+  ]
+}

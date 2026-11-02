@@ -1,0 +1,14 @@
+{
+  "name": "@ahzs645/forestry-castor-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Editable browser adaptation of forestryCastor, using a pinned PGMaps host and shared interface.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepare-host": "node scripts/build.mjs --prepare-only",
+    "verify-source": "node scripts/build.mjs --verify-only",
+    "preview": "node scripts/build.mjs --preview"
+  },
+  "engines": { "node": ">=22.12.0" }
+}
