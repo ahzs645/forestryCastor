@@ -2,6 +2,8 @@
 
 **[Open the browser application](https://projects.ahmadjalil.com/forestryCastor/)**
 
+[View the live browser verification, CORS check and map preview](docs/browser-verification.md).
+
 This fork adds a browser implementation of the forestry scenario workbench. Load
 local inventory and scenario files, compare management scenarios, inspect maps and
 tables, and export CSV, GeoJSON, GeoTIFF, complete reports and saved sessions.
