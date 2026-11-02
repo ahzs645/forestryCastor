@@ -1,7 +1,7 @@
 {
   "schema": "forestry-castor-browser-source-v1",
   "repository": "ahzs645/PGMaps",
-  "revision": "63cb0f7e1570d27292f0ae048adff4061c340f0d",
+  "revision": "bae70897c15dd1444a10dba4538e2841f392cfd7",
   "upstream": {
     "forestryCastor": "e2a580eb1fcc634780bb3599da7265a1e871484f",
     "growingStockCastor": "8ea945a91b4ec71d0ddd28714641b6dcae229c5c",
@@ -86,11 +86,11 @@
     },
     {
       "path": "src/pages/DevForestryCastor.tsx",
-      "sha256": "305cb162cdfbe692fa376c35f6ad8f73a2b0b91bd35b13e413a870be364109f9"
+      "sha256": "c0c8dc61f555666c31393d1cf24cc1669d44d2006727f3e3dedad3f7cad1d4aa"
     },
     {
       "path": "src/pages/forestry-castor/MethodsPanel.tsx",
-      "sha256": "e902f7f756c13240a4af28e3b6dfdee1f0f723cd3c56da4a584cd6f83c113c9c"
+      "sha256": "2fdfb1fae491de0d8c63c14b44325f0f9b7fb9c113c2658f9f110ffc77f4cfc1"
     },
     {
       "path": "src/pages/forestry-castor/ResultsPanel.tsx",
